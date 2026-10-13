@@ -19,4 +19,4 @@ The result preserves separate labels and flags money or account actions for appr
 4. Compare baseline, Jev, and a chat model on the same held-out cases. Measure per-label precision and recall, missed multi-intent actions, calibration, latency, total cost, and human review burden. A model's displayed percentage is not a measured correctness probability by default.
 5. Keep Palm92's authority gate: human approval before any payment, account change, external communication, or sensitive record update. Log the original text or privacy-safe reference, all labels and scores, model/version, policy version, reviewer, and outcome.
 
-The accompanying session note is `Palm92_Decision_Model_Skillup_2026-10-13.md`. The demonstration's reported benchmarks are not independently reproduced here.
+The workshop's reported benchmarks are not independently reproduced here.

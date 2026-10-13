@@ -1,22 +1,44 @@
-# Palm92 Decision Pilot
+# Palm92 Decision Review Pilot
 
-A local, free, transparent baseline from the Outskill session. No API key, dependencies, or customer data needed. It is **not Jev**, does not calculate model probabilities, and does not execute refunds, closures, or messages.
+**Status: complete offline demonstration. Live model integration remains pending.**
 
-## Run
+## Try it
+
+Download `index.html` and open it in your browser. No installation, API key, subscription, or network connection is required.
+
+1. Choose a fictional example or write one.
+2. Click **Check the message**.
+3. Read all candidate labels and confirm every intent.
+4. Select a decision and write the reason.
+5. Click **Record decision**, then **Download review record**.
+
+The generated JSON records the original message, candidate labels, human labels, rationale, timestamp, and `execution_performed: false`. Editing the message invalidates its old analysis; editing a decision disables its old download. Clear removes the current in-memory record. Nothing is stored remotely or executed.
+
+## What it demonstrates
+
+Separate complaint, refund, closure and churn signals preserve multiple requests. Explicit closure negation is flagged. Human review is required for every case in this demo. Keyword matches are candidates, not verified facts or calibrated confidence. Paraphrases, complex negation, conditional language and unsupported languages can fail. The supported Hindi example is only one illustrative test.
+
+This is a transparent rules baseline inspired by the Outskill session. Jev and other model APIs are not connected. Refund eligibility, payment records, identity and account authority are not verified by this demo.
+
+## Developer checks
+
+From this directory:
 
 ```bash
 python3 evaluate.py
-python3 decision_pilot.py "Third time the blender arrived cracked. Send my money back and close my account."
+node test_demo.cjs
 ```
 
-The result preserves separate labels and flags money or account actions for approval. This simple keyword baseline is intentionally limited: paraphrases, negation outside the one example, sarcasm, and other languages can fail. Unknown cases need review.
+Checks cover 9 illustrative label cases in Python and JavaScript, empty input, a required decision reason, record invalidation, and the invariant that execution is false. The JavaScript checks use a minimal DOM mock; a real browser visual test could not run in the build environment because Chromium was unavailable.
 
-## Next implementation gate
+`build_demo.py` embeds the Python rules into the self-contained HTML. Regenerate after changing the baseline:
 
-1. Collect 30 to 50 synthetic cases covering single intent, two intents, negation, future conditions, sarcasm, other languages, and unknown requests. Have a human label each independently.
-2. Define which Palm92 workflow to pilot first. Recommended: local Chief of Staff email triage with synthetic opportunity messages, no live Gmail connection or outbound action.
-3. When the presenter shares the repository and official API documentation, inspect the contract, pricing/free tier, data retention, privacy, and key handling. Add Jev as a replaceable scorer only if access and terms fit.
-4. Compare baseline, Jev, and a chat model on the same held-out cases. Measure per-label precision and recall, missed multi-intent actions, calibration, latency, total cost, and human review burden. A model's displayed percentage is not a measured correctness probability by default.
-5. Keep Palm92's authority gate: human approval before any payment, account change, external communication, or sensitive record update. Log the original text or privacy-safe reference, all labels and scores, model/version, policy version, reviewer, and outcome.
+```bash
+python3 build_demo.py
+```
 
-The workshop's reported benchmarks are not independently reproduced here.
+## Next version
+
+Obtain official decision API documentation and access; verify free tier/pricing and data terms; add a replaceable scorer; test on independently labelled held-out cases; compare missed intents, calibration, latency, total cost and review burden. Connect real workflows only after those checks. Authority remains separate from classification.
+
+**Palm92 principle: AI investigates. Humans decide.**

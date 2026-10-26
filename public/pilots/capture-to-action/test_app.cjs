@@ -1,0 +1,18 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const vm = require('node:vm');
+const source = fs.readFileSync(`${__dirname}/app.js`, 'utf8');
+const context = { window: {}, document: { getElementById: () => ({ addEventListener() {}, querySelectorAll: () => [], classList: { add() {}, remove() {}, toggle() {} }, setAttribute() {}, value: '', textContent: '', innerHTML: '', hidden: false, reset() {}, focus() {} }), createElement: () => ({ click() {} }) }, navigator: {}, indexedDB: { open: () => ({}) }, location: { protocol: 'file:' }, URL: { createObjectURL() {}, revokeObjectURL() {} }, Blob, Intl, Date, Math, crypto: { randomUUID: () => 'test-id' }, setTimeout, clearTimeout, setInterval, clearInterval, console, confirm: () => true, prompt: () => null };
+context.window.confirm = context.confirm;
+context.window.prompt = context.prompt;
+context.window.Palm92Capture = undefined;
+vm.runInNewContext(source, context);
+const api = context.window.Palm92Capture;
+assert.equal(api.summarize('First point. Second point. Third point.'), 'First point. Second point.');
+const proposals = Array.from(api.proposeActions('We need to call the venue. Then we should review the budget.'));
+assert.deepEqual(proposals.map(action => action.text), ['We need to call the venue.', 'Then we should review the budget.']);
+assert.ok(proposals.every(action => action.status === 'proposed'));
+assert.equal(api.proposeActions('This is just an open reflection.').length, 0);
+assert.equal(api.matches({ title: 'Church rota', project: 'Church', transcript: 'Call the team', summary: '', tags: [] }, 'rota'), true);
+assert.equal(api.matches({ title: 'Church rota', project: 'Church', transcript: 'Call the team', summary: '', tags: [] }, 'council'), false);
+console.log('Capture to Action logic checks passed.');

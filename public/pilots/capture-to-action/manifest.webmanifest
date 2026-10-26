@@ -1,0 +1,11 @@
+{
+  "name": "Palm92 Capture to Action",
+  "short_name": "Palm92 Capture",
+  "description": "A local-first voice notebook with human-reviewed actions.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1118",
+  "theme_color": "#101722",
+  "icons": []
+}

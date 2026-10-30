@@ -1,33 +1,19 @@
 1
-00:00:00,000 --> 00:00:03,700
-AI safeguards need evidence. A promise is not proof.
+00:00:00,000 --> 00:00:07,580
+AI is advancing quickly. Can the safeguards keep up?
 
 2
-00:00:03,700 --> 00:00:07,400
-Before high-risk AI goes live, ask: What was tested?
-Who checked it? Who owns the risk?
+00:00:07,580 --> 00:00:15,160
+Powerful AI can amplify serious risks. Test before release.
 
 3
-00:00:07,400 --> 00:00:11,100
-Human judgement sets the purpose and limits.
+00:00:15,160 --> 00:00:22,740
+Good intentions are not evidence. Ask an independent reviewer to challenge the evidence.
 
 4
-00:00:11,100 --> 00:00:14,800
-AI supports work within those agreed limits.
+00:00:22,740 --> 00:00:30,220
+Monitor after launch. Keep a human ready to pause the system.
 
 5
-00:00:14,800 --> 00:00:18,500
-People verify important outputs and keep records.
-
-6
-00:00:18,500 --> 00:00:22,200
-Monitor outcomes, report incidents and improve controls.
-
-7
-00:00:22,200 --> 00:00:26,000
-If safeguards fail, who can pause or roll back?
-
-8
-00:00:26,000 --> 00:00:30,400
-Trust follows evidence. Humans stay accountable.
-Palm92. Responsible AI. Evidence first.
+00:00:30,220 --> 00:00:34,720
+AI safeguards need evidence. What should organisations prove before high-risk AI goes live?

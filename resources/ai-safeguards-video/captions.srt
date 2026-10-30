@@ -1,0 +1,33 @@
+1
+00:00:00,000 --> 00:00:03,700
+AI safeguards need evidence. A promise is not proof.
+
+2
+00:00:03,700 --> 00:00:07,400
+Before high-risk AI goes live, ask: What was tested?
+Who checked it? Who owns the risk?
+
+3
+00:00:07,400 --> 00:00:11,100
+Human judgement sets the purpose and limits.
+
+4
+00:00:11,100 --> 00:00:14,800
+AI supports work within those agreed limits.
+
+5
+00:00:14,800 --> 00:00:18,500
+People verify important outputs and keep records.
+
+6
+00:00:18,500 --> 00:00:22,200
+Monitor outcomes, report incidents and improve controls.
+
+7
+00:00:22,200 --> 00:00:26,000
+If safeguards fail, who can pause or roll back?
+
+8
+00:00:26,000 --> 00:00:30,400
+Trust follows evidence. Humans stay accountable.
+Palm92. Responsible AI. Evidence first.
